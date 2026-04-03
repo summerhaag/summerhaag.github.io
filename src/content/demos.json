@@ -10,6 +10,6 @@
     "id": "quad-dual",
     "title": "ACP duals and inversion",
     "description": "Demonstrates how ACPs are generated through dual circles",
-    "src": "/demos/quad-dual/index.html"
+    "src": "https://summerhaag.github.io/shaders-public/quad-dual/"
   }
 ]
