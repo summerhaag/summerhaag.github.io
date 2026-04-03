@@ -1,0 +1,10 @@
+[
+  { "title": "Calculus I",   "semester": "Fall",   "year": 2022, "role": "TA" },
+  { "title": "Calculus II",   "semester": "Spring", "year": 2023, "role": "TA" },
+  { "title": "Calculus II", "semester": "Fall",   "year": 2023, "role": "Instructor" }, 
+  { "title": "Calculus III", "semester": "Spring",   "year": 2024, "role": "TA" },
+  { "title": "Calculus II", "semester": "Summer",   "year": 2024, "role": "Instructor" },
+  { "title": "Calculus II", "semester": "Fall",   "year": 2024, "role": "Instructor" },
+  { "title": "Precalculus", "semester": "Spring",   "year": 2025, "role": "TA" },
+  { "title": "Precalculus", "semester": "Fall",   "year": 2025, "role": "Instructor" }
+]

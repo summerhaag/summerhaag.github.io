@@ -1,0 +1,15 @@
+[
+  {
+    "id": "parameter-space",
+    "title": "ACP Parameter Space",
+    "description": "Explore the parameter space of Apollonian circle packings. The left panel shows strip packing configuration which is the parameter space; the mouse position on the left gives the resulting packing on the right.",
+    "src": "/demos/parameter-space-split/index.html",
+    "collectionHref": "/demos/parameter-space"
+  },
+  {
+    "id": "quad-dual",
+    "title": "ACP duals and inversion",
+    "description": "Demonstrates how ACPs are generated through dual circles",
+    "src": "/demos/quad-dual/index.html"
+  }
+]

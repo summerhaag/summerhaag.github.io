@@ -6,7 +6,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sync:shaders": "ln -sfn /Users/summerhaag/shaders/dist public/demos",
+    "rebuild": "bash scripts/rebuild.sh",
+    "compile:cv": "pdflatex -interaction=nonstopmode -output-directory=cv cv/cv.tex && cp cv/cv.pdf public/cv.pdf"
   },
   "dependencies": {
     "astro": "^5.17.1"

@@ -1,11 +1,1028 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import courses from '../data/courses.json';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const allPapers = await getCollection('papers');
+const papers = allPapers.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const illustrations = await getCollection('illustrations');
+const demos         = await getCollection('demos');
+const talks         = (await getCollection('talks')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Summer Haag">
+
+	<!-- Navigation -->
+	<nav>
+		<div class="nav-inner">
+			<a href="#top" class="nav-logo">Summer Haag</a>
+			<ul class="nav-links">
+				<li><a href="#about">About</a></li>
+				<li><a href="#research">Research</a></li>
+				<li><a href="#teaching">Teaching</a></li>
+				<li><a href="#talks">Talks</a></li>
+				<li><a href="#gallery">Gallery</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Hero -->
+	<section id="top" class="hero">
+		<div class="hero-content">
+			<p class="hero-label">Welcome</p>
+			<h1>Summer Haag</h1>
+			<p class="hero-subtitle">PhD Student in Mathematics &middot; University of Colorado Boulder</p>
+			<div class="hero-actions">
+				<a href="#about" class="btn-primary">About Me</a>
+				<a href="#research" class="btn-secondary">My Research</a>
+			</div>
+		</div>
+		<div class="hero-decoration">
+			<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			<div class="blob blob-3"></div>
+		</div>
+	</section>
+
+	<!-- About -->
+	<section id="about" class="section section-about">
+		<div class="container">
+			<div class="section-tag">About Me</div>
+			<h2>Summer Haag</h2>
+			<div class="section-body two-col">
+				<div class="text-block">
+					<p>
+						I am currently a fourth year mathematics PhD student at the University of Colorado Boulder. 
+						I enjoy questions that are simple to explain but have complex solutions and explorations, especially 
+						focusing on the visual explorations. 
+						I'm interested in number theory, specifically Apollonian circle packings, Kleinian groups, continued
+						fractions, and quadratic forms. 
+						These topics relate to many areas like hyperbolic geometry, arithmetic groups, and lattices.
+						My advisor is <a href="https://math.katestange.net/" target="_blank" rel="noopener noreferrer">Katherine E. Stange</a>.
+					</p>
+					<p>
+						B.A. in Mathematics, University of Georgia, May 2022.
+					</p>
+					<dl class="about-details">
+						<div><dt>Institution</dt><dd>University of Colorado Boulder</dd></div>
+						<div><dt>Department</dt><dd>Department of Mathematics</dd></div>
+						<div><dt>Office</dt><dd>MATH 340</dd></div>
+						<div><dt>Email</dt><dd>summer.haag@colorado.edu</dd></div>
+					</dl>
+					<div class="contact-links">
+						<a href="mailto:summer.haag@colorado.edu" class="contact-chip">Email</a>
+						<a href="/cv.pdf" target="_blank" class="contact-chip">CV</a>
+						<a href="/SummerHaag_resume 1.25_copy.pdf" target="_blank" class="contact-chip">Resume</a>
+					</div>
+				</div>
+				<div class="photo-block">
+					<img src="/profile.jpeg" alt="Summer Haag" class="profile-photo" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Research -->
+	<section id="research" class="section section-research">
+		<div class="container">
+			<div class="section-tag">Research</div>
+			<h2>My Work</h2>
+			<p class="section-intro">
+				I am interested in algebraic number theory, focusing on illustrating mathematics,
+				computations, and connecting topics to get different perspectives.
+				My current research is focused on Apollonian circle packings.
+			</p>
+			<div class="card-grid">
+				{papers.map((paper) => (
+					<div class="card">
+						<div class="card-icon">{paper.data.date.getFullYear()}</div>
+						<h3>{paper.data.title}</h3>
+						<p class="card-authors">{paper.data.authors}</p>
+						<p>{paper.data.abstract}</p>
+						<div class="card-meta">
+							{paper.data.journal && (
+								paper.data.url
+									? <a href={paper.data.url} class="card-arxiv" target="_blank" rel="noopener noreferrer">{paper.data.journal} ↗</a>
+									: <span class="card-journal">{paper.data.journal}</span>
+							)}
+							{paper.data.arxiv && (
+								<a href={paper.data.arxiv} class="card-arxiv" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
+							)}
+							{paper.data.press && (
+								<a href={paper.data.press.url} class="card-press" target="_blank" rel="noopener noreferrer">{paper.data.press.name} ↗</a>
+							)}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Teaching -->
+	<section id="teaching" class="section section-teaching">
+		<div class="container">
+			<div class="section-tag">Teaching</div>
+			<h2>Courses & Mentorship</h2>
+			<p class="section-intro">
+				I enjoy teaching in interactive ways with active learning and exploratory persepctives. 
+			</p>
+			<div class="course-list">
+				{courses.map((course) => (
+					<div class="course-item">
+						<span class="course-code">{course.semester}</span>
+						<div class="course-info">
+							<h3>
+								{course.title}
+								<span class="course-role" data-role={course.role}>{course.role}</span>
+							</h3>
+						</div>
+						<span class="course-term">{course.year}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Talks -->
+	<section id="talks" class="section section-talks">
+		<div class="container">
+			<div class="section-tag">Presentations</div>
+			<h2>Talks & Presentations</h2>
+			<div class="talk-list">
+				{talks.map((talk) => (
+					<div class="talk-item">
+						<span class="talk-date">{talk.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+						<div class="talk-info">
+							<h3>
+								{talk.data.slides
+									? <a href={talk.data.slides} target="_blank" rel="noopener noreferrer">{talk.data.title} ↗</a>
+									: talk.data.title
+								}
+							</h3>
+							<p class="talk-venue">{talk.data.venue}</p>
+							{talk.data.abstract && <p class="talk-abstract">{talk.data.abstract}</p>}
+						</div>
+						<span class="talk-location">{talk.data.location}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Gallery -->
+	<section id="gallery" class="section section-gallery">
+		<div class="container">
+			<div class="section-tag">Art & Code</div>
+			<h2>Gallery</h2>
+
+			<div class="gallery-subsection">
+				<h3 class="subsection-heading">Illustrations</h3>
+				<div class="illus-grid">
+					{illustrations.map((illus) => (
+						<figure class="illus-card">
+							<a href={illus.data.src} target="_blank" rel="noopener noreferrer">
+								<img src={illus.data.src} alt={illus.data.alt} class="illus-img" loading="lazy" />
+							</a>
+							<figcaption>{illus.data.title}</figcaption>
+						</figure>
+					))}
+				</div>
+			</div>
+
+			<div class="gallery-subsection">
+				<h3 class="subsection-heading">Interactive Code</h3>
+				<div class="demo-grid">
+					{demos.map((demo) => (
+						demo.data.collectionHref ? (
+							<div class="demo-card demo-card-collection" onclick={`window.location='${demo.data.collectionHref}'`}>
+								<div class="demo-header">
+									<div>
+										<h4>{demo.data.title}</h4>
+										<p class="demo-desc">{demo.data.description}</p>
+									</div>
+									<span class="demo-fullscreen" aria-hidden="true">⛶</span>
+								</div>
+								<div class="demo-embed demo-embed-preview">
+									<iframe src={demo.data.src} title={demo.data.title} loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+								</div>
+								<div class="demo-collection-footer">
+									<span class="demo-collection-cta">Explore all variants →</span>
+								</div>
+							</div>
+						) : (
+							<div class="demo-card">
+								<div class="demo-header">
+									<div>
+										<h4>{demo.data.title}</h4>
+										<p class="demo-desc">{demo.data.description}</p>
+									</div>
+									<a href={demo.data.src} class="demo-fullscreen" title="Open full screen">⛶</a>
+								</div>
+								<div class="demo-embed">
+									<iframe
+										src={demo.data.src}
+										title={demo.data.title}
+										loading="lazy"
+										allow="pointer-lock"
+									></iframe>
+								</div>
+							</div>
+						)
+					))}
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<p>&copy; {new Date().getFullYear()} Summer Haag. All rights reserved.</p>
+		</div>
+	</footer>
+
 </Layout>
+
+<style>
+	/* ── Nav ── */
+	nav {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background: var(--bg-nav);
+		backdrop-filter: blur(10px);
+		border-bottom: 2px solid var(--border-nav);
+	}
+
+	.nav-inner {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding: var(--container-padding);
+		height: var(--nav-height);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.nav-logo {
+		font-family: var(--font-heading);
+		font-size: 1.2rem;
+		font-weight: 700;
+		color: var(--text-heading);
+		text-decoration: none;
+	}
+
+	.nav-links {
+		list-style: none;
+		display: flex;
+		gap: 2rem;
+	}
+
+	.nav-links a {
+		text-decoration: none;
+		color: var(--text-heading);
+		font-weight: 500;
+		font-size: 0.95rem;
+		letter-spacing: 0.02em;
+		transition: color var(--transition-speed);
+	}
+
+	.nav-links a:hover {
+		color: var(--accent-primary);
+	}
+
+	/* ── Hero ── */
+	.hero {
+		position: relative;
+		min-height: calc(100vh - var(--nav-height));
+		display: flex;
+		align-items: center;
+		background:
+			linear-gradient(135deg, rgba(30, 10, 60, 0.82) 0%, rgba(59, 7, 100, 0.72) 50%, rgba(67, 56, 202, 0.65) 100%),
+			url('/illustrations/apollonian-superpack.jpg') center / cover no-repeat;
+		overflow: hidden;
+		padding: 4rem 2rem;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		max-width: var(--max-width);
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.hero-label {
+		font-size: 0.85rem;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--text-on-dark-label);
+		margin-bottom: 1rem;
+		font-weight: 600;
+	}
+
+	.hero h1 {
+		font-size: clamp(3rem, 7vw, 6rem);
+		color: var(--text-on-dark);
+		line-height: 1.05;
+		margin-bottom: 1rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.2rem;
+		color: var(--text-on-dark-muted);
+		margin-bottom: 2.5rem;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.btn-primary {
+		padding: 0.8rem 2rem;
+		background: var(--accent-primary);
+		color: var(--text-on-dark);
+		border-radius: var(--radius-sm);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.95rem;
+		transition: background var(--transition-speed), transform var(--transition-speed);
+	}
+
+	.btn-primary:hover {
+		background: var(--accent-primary-hover);
+		transform: translateY(-2px);
+	}
+
+	.btn-secondary {
+		padding: 0.8rem 2rem;
+		background: transparent;
+		color: var(--text-on-dark);
+		border: 2px solid rgba(255, 255, 255, 0.4);
+		border-radius: var(--radius-sm);
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.95rem;
+		transition: border-color var(--transition-speed), transform var(--transition-speed);
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--text-on-dark);
+		transform: translateY(-2px);
+	}
+
+	/* Decorative blobs */
+	.hero-decoration {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	.blob {
+		position: absolute;
+		border-radius: 50%;
+		filter: blur(60px);
+		opacity: 0.25;
+	}
+
+	.blob-1 {
+		width: 500px;
+		height: 500px;
+		background: var(--decor-blob-pink);
+		top: -100px;
+		right: -100px;
+	}
+
+	.blob-2 {
+		width: 350px;
+		height: 350px;
+		background: var(--decor-blob-indigo);
+		bottom: -80px;
+		right: 200px;
+	}
+
+	.blob-3 {
+		width: 250px;
+		height: 250px;
+		background: var(--decor-blob-sky);
+		top: 40%;
+		right: 5%;
+	}
+
+	/* ── Shared section styles ── */
+	.section {
+		padding: var(--section-padding);
+	}
+
+	.container {
+		max-width: var(--max-width);
+		margin: 0 auto;
+	}
+
+	.section-tag {
+		display: inline-block;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		padding: 0.3rem 0.8rem;
+		border-radius: var(--radius-tag);
+		margin-bottom: 1rem;
+	}
+
+	.section h2 {
+		font-size: clamp(2rem, 4vw, 3rem);
+		margin-bottom: 1.5rem;
+		line-height: 1.2;
+	}
+
+	.section-intro {
+		font-size: 1.1rem;
+		max-width: var(--max-width-prose);
+		margin-bottom: 3rem;
+		color: var(--text-muted);
+	}
+
+	/* ── About ── */
+	.section-about {
+		background: var(--bg-white);
+	}
+
+	.section-about .section-tag {
+		background: var(--tag-about-bg);
+		color: var(--tag-about-text);
+	}
+
+	.section-about h2 {
+		color: var(--text-heading);
+	}
+
+	.two-col {
+		display: grid;
+		grid-template-columns: 1fr 300px;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.text-block p {
+		font-size: 1.05rem;
+		color: var(--text-subdued);
+		margin-bottom: 1.2rem;
+		line-height: 1.8;
+	}
+
+	.contact-links {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+	}
+
+	.contact-chip {
+		padding: 0.4rem 1rem;
+		background: var(--text-heading);
+		color: var(--text-on-dark);
+		border-radius: var(--radius-pill);
+		text-decoration: none;
+		font-size: 0.85rem;
+		font-weight: 500;
+		transition: background var(--transition-speed);
+	}
+
+	.contact-chip:hover {
+		background: var(--accent-primary);
+	}
+
+	.profile-photo {
+		width: 100%;
+		border-radius: var(--radius-md);
+		display: block;
+		object-fit: cover;
+		aspect-ratio: 3/4;
+		box-shadow: 0 8px 32px rgba(46, 16, 101, 0.15);
+	}
+
+	.about-details {
+		margin: 1.25rem 0 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.about-details div {
+		display: flex;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+	}
+
+	.about-details dt {
+		font-weight: 600;
+		color: var(--accent-primary);
+		white-space: nowrap;
+	}
+
+	.about-details dd {
+		color: var(--text-subdued);
+	}
+
+	.text-block a {
+		color: var(--accent-primary);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.text-block a:hover {
+		color: var(--accent-secondary);
+	}
+
+	/* ── Research ── */
+	.section-research {
+		background: var(--bg-dark);
+	}
+
+	.section-research .section-tag {
+		background: var(--tag-research-bg);
+		color: var(--tag-research-text);
+	}
+
+	.section-research h2 {
+		color: var(--text-on-dark);
+	}
+
+	.section-research .section-intro {
+		color: var(--text-on-dark-muted);
+	}
+
+	.card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.card {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid var(--border-card);
+		border-radius: var(--radius-md);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		transition: border-color var(--transition-speed), transform var(--transition-speed);
+	}
+
+	.card:hover {
+		border-color: var(--border-card-hover);
+		transform: translateY(-4px);
+	}
+
+	.card-icon {
+		font-size: 2rem;
+		font-weight: 800;
+		color: var(--accent-primary-bright);
+		font-family: var(--font-heading);
+		margin-bottom: 1rem;
+		opacity: 0.8;
+	}
+
+	.card h3 {
+		color: var(--text-on-dark);
+		font-size: 1.2rem;
+		margin-bottom: 0.4rem;
+	}
+
+	.card-authors {
+		font-size: 0.82rem;
+		color: var(--accent-primary-bright);
+		margin-bottom: 0.9rem !important;
+		font-style: italic;
+		opacity: 0.85;
+		flex: unset !important;
+	}
+
+	.card p {
+		color: var(--text-on-dark-muted);
+		font-size: 0.95rem;
+		line-height: 1.7;
+		flex: 1;
+	}
+
+	.card-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+		margin-top: 1.25rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.card-journal {
+		font-size: 0.8rem;
+		color: var(--text-on-dark-muted);
+		font-style: italic;
+		flex: 1;
+	}
+
+	.card-arxiv {
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--accent-primary-bright);
+		text-decoration: none;
+		letter-spacing: 0.03em;
+		transition: color var(--transition-speed);
+		white-space: nowrap;
+	}
+
+	.card-arxiv:hover {
+		color: var(--text-on-dark);
+	}
+
+	.card-press {
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--decor-blob-sky);
+		text-decoration: none;
+		letter-spacing: 0.03em;
+		transition: color var(--transition-speed);
+		white-space: nowrap;
+	}
+
+	.card-press:hover {
+		color: var(--text-on-dark);
+	}
+
+	/* ── Teaching ── */
+	.section-teaching {
+		background: var(--bg-light-purple);
+	}
+
+	.section-teaching .section-tag {
+		background: var(--tag-teaching-bg);
+		color: var(--tag-teaching-text);
+	}
+
+	.section-teaching h2 {
+		color: var(--text-heading);
+	}
+
+	.course-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+		background: var(--border-course-list);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+	}
+
+	.course-item {
+		display: grid;
+		grid-template-columns: 120px 1fr 100px;
+		gap: 1.5rem;
+		align-items: center;
+		background: var(--bg-white);
+		padding: 1.5rem 2rem;
+		transition: background var(--transition-speed-fast);
+	}
+
+	.course-item:hover {
+		background: var(--bg-tag-about);
+	}
+
+	.course-code {
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		color: var(--tag-teaching-text);
+		text-transform: uppercase;
+	}
+
+	.course-info h3 {
+		font-size: 1rem;
+		color: var(--text-heading);
+		margin-bottom: 0.25rem;
+		font-family: var(--font-body);
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		flex-wrap: wrap;
+	}
+
+	.course-role {
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		padding: 0.2rem 0.55rem;
+		border-radius: var(--radius-pill);
+		flex-shrink: 0;
+	}
+
+	.course-role[data-role="Instructor"] {
+		background: var(--tag-teaching-bg);
+		color: var(--tag-teaching-text);
+	}
+
+	.course-role[data-role="TA"] {
+		background: var(--tag-about-bg);
+		color: var(--accent-primary);
+	}
+
+	.course-info p {
+		font-size: 0.9rem;
+		color: var(--text-subdued);
+	}
+
+	.course-term {
+		font-size: 0.85rem;
+		color: var(--text-faint);
+		text-align: right;
+	}
+
+	/* ── Talks ── */
+	.section-talks {
+		background: var(--bg-dark);
+	}
+
+	.section-talks .section-tag {
+		background: var(--tag-research-bg);
+		color: var(--tag-research-text);
+	}
+
+	.section-talks h2 {
+		color: var(--text-on-dark);
+	}
+
+	.talk-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+		background: rgba(255, 255, 255, 0.06);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+	}
+
+	.talk-item {
+		display: grid;
+		grid-template-columns: 140px 1fr 160px;
+		gap: 1.5rem;
+		align-items: center;
+		background: rgba(255, 255, 255, 0.03);
+		padding: 1.5rem 2rem;
+		transition: background var(--transition-speed-fast);
+	}
+
+	.talk-item:hover {
+		background: rgba(192, 38, 211, 0.08);
+	}
+
+	.talk-date {
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		color: var(--accent-primary-bright);
+		text-transform: uppercase;
+	}
+
+	.talk-info h3 {
+		font-size: 1rem;
+		color: var(--text-on-dark);
+		margin-bottom: 0.25rem;
+		font-family: var(--font-body);
+		font-weight: 600;
+	}
+
+	.talk-info h3 a {
+		color: var(--text-on-dark);
+		text-decoration: none;
+		transition: color var(--transition-speed);
+	}
+
+	.talk-info h3 a:hover {
+		color: var(--accent-primary-bright);
+	}
+
+	.talk-venue {
+		font-size: 0.9rem;
+		color: var(--text-on-dark-muted);
+	}
+
+	.talk-abstract {
+		font-size: 0.85rem;
+		color: rgba(196, 181, 253, 0.65);
+		line-height: 1.6;
+		margin-top: 0.4rem;
+	}
+
+	.talk-location {
+		font-size: 0.85rem;
+		color: rgba(196, 181, 253, 0.5);
+		text-align: right;
+	}
+
+	/* ── Gallery ── */
+	.section-gallery {
+		background: var(--bg-white);
+	}
+
+	.section-gallery .section-tag {
+		background: var(--tag-research-bg);
+		color: var(--tag-research-text);
+	}
+
+	.section-gallery h2 {
+		color: var(--text-heading);
+	}
+
+	.gallery-subsection {
+		margin-top: 3rem;
+	}
+
+	.subsection-heading {
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		margin-bottom: 1.5rem;
+		padding-bottom: 0.6rem;
+		border-bottom: 1px solid var(--border-card);
+	}
+
+	/* Illustrations grid */
+	.illus-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.illus-card {
+		margin: 0;
+		background: var(--bg-light-purple);
+		border: 1px solid var(--border-card);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		transition: transform var(--transition-speed), border-color var(--transition-speed);
+	}
+
+	.illus-card:hover {
+		transform: translateY(-4px);
+		border-color: var(--accent-primary);
+	}
+
+	.illus-img {
+		width: 100%;
+		display: block;
+		object-fit: cover;
+		aspect-ratio: 1 / 1;
+	}
+
+	.illus-card figcaption {
+		padding: 0.75rem 1rem;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--text-heading);
+	}
+
+	/* Interactive code demos */
+	.demo-grid {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.demo-card {
+		border: 1px solid var(--border-card);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		background: var(--bg-dark);
+		transition: border-color var(--transition-speed);
+	}
+
+	.demo-card:hover {
+		border-color: var(--accent-primary);
+	}
+
+	.demo-header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1.5rem;
+		padding: 1.25rem 1.5rem;
+		border-bottom: 1px solid rgba(255,255,255,0.07);
+	}
+
+	.demo-header h4 {
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--text-on-dark);
+		margin-bottom: 0.3rem;
+		font-family: var(--font-body);
+	}
+
+	.demo-desc {
+		color: var(--text-on-dark-muted);
+		font-size: 0.85rem;
+		line-height: 1.6;
+	}
+
+	/* Collection card (links to multi-variant viewer) */
+	.demo-card-collection {
+		cursor: pointer;
+	}
+
+	/* Live preview iframe — non-interactive, visual only */
+	.demo-embed-preview iframe {
+		pointer-events: none;
+	}
+
+	.demo-collection-footer {
+		padding: 0.75rem 1.5rem;
+		border-top: 1px solid rgba(255,255,255,0.07);
+		background: rgba(192, 38, 211, 0.06);
+	}
+
+	.demo-collection-cta {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--accent-primary-bright);
+		letter-spacing: 0.02em;
+	}
+
+	.demo-card-collection:hover .demo-collection-cta {
+		color: var(--text-on-dark);
+	}
+
+	.demo-fullscreen {
+		flex-shrink: 0;
+		font-size: 1.3rem;
+		color: var(--text-on-dark-muted);
+		text-decoration: none;
+		line-height: 1;
+		padding: 0.25rem;
+		transition: color var(--transition-speed);
+	}
+
+	.demo-fullscreen:hover {
+		color: var(--accent-primary-bright);
+	}
+
+	.demo-embed {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+	}
+
+	.demo-embed iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+		display: block;
+	}
+
+	/* ── Footer ── */
+	footer {
+		background: var(--bg-dark);
+		color: var(--text-on-dark-muted);
+		padding: 2rem;
+		text-align: center;
+		font-size: 0.85rem;
+	}
+
+	/* ── Responsive ── */
+	@media (max-width: 768px) {
+		.two-col {
+			grid-template-columns: 1fr;
+		}
+
+		.photo-block {
+			order: -1;
+			max-width: 250px;
+			margin: 0 auto;
+		}
+
+		.course-item {
+			grid-template-columns: 1fr;
+			gap: 0.5rem;
+		}
+
+		.course-term {
+			text-align: left;
+		}
+
+		.talk-item {
+			grid-template-columns: 1fr;
+			gap: 0.4rem;
+		}
+
+		.talk-location {
+			text-align: left;
+		}
+	}
+</style>

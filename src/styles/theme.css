@@ -1,0 +1,136 @@
+:root {
+
+  /* ═══════════════════════════════════════
+     TYPOGRAPHY
+  ═══════════════════════════════════════ */
+
+  --font-body:    'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+
+
+  /* ═══════════════════════════════════════
+     ACCENT COLORS
+     Primary = fuchsia  |  Secondary = violet
+  ═══════════════════════════════════════ */
+
+  /* Primary accent — used for buttons, nav border, hover states, active labels */
+  --accent-primary:        #c026d3;
+  --accent-primary-hover:  #a21caf;
+
+  /* Brighter variant — used for tags and icons on dark backgrounds */
+  --accent-primary-bright: #e879f9;
+
+  /* Translucent variant — used for tag backgrounds on dark backgrounds */
+  --accent-primary-subtle: rgba(192, 38, 211, 0.2);
+
+  /* Secondary accent — used for teaching section tags and course codes */
+  --accent-secondary:      #7c3aed;
+
+
+  /* ═══════════════════════════════════════
+     DECORATIVE / BLOB COLORS
+     (hero background orbs only)
+  ═══════════════════════════════════════ */
+
+  --decor-blob-pink:   #e879f9;
+  --decor-blob-indigo: #818cf8;
+  --decor-blob-sky:    #38bdf8;
+
+
+  /* ═══════════════════════════════════════
+     HERO GRADIENT
+  ═══════════════════════════════════════ */
+
+  --hero-gradient-start: #1e0a3c;   /* deep purple — left edge */
+  --hero-gradient-mid:   #3b0764;   /* dark purple — center */
+  --hero-gradient-end:   #4338ca;   /* indigo     — right edge */
+
+
+  /* ═══════════════════════════════════════
+     TEXT COLORS
+  ═══════════════════════════════════════ */
+
+  /* On light backgrounds */
+  --text-heading:        #2e1065;   /* headings on white / light sections */
+  --text-body:           #2e1065;   /* body text on white / light sections */
+  --text-muted:          #5b3d7a;   /* secondary / intro text on light sections */
+  --text-subdued:        #666666;   /* fine print, course descriptions */
+  --text-faint:          #888888;   /* very secondary text, e.g. course term */
+
+  /* On dark backgrounds */
+  --text-on-dark:        #ffffff;   /* primary text on dark sections */
+  --text-on-dark-muted:  #c4b5fd;   /* secondary text on dark sections (lavender) */
+  --text-on-dark-label:  #f0abfc;   /* overline / label text on hero (light pink) */
+
+
+  /* ═══════════════════════════════════════
+     BACKGROUND COLORS
+  ═══════════════════════════════════════ */
+
+  --bg-page:         #fafafa;                   /* root page background */
+  --bg-white:        #ffffff;                   /* about section, course rows */
+  --bg-light-purple: #faf5ff;                   /* teaching section */
+  --bg-tag-about:    #fdf4ff;                   /* about section tag chip + course row hover */
+  --bg-tag-teaching: #ede9fe;                   /* teaching section tag chip */
+  --bg-dark:         #1e0a3c;                   /* research section + footer */
+  --bg-nav:          rgba(250, 245, 255, 0.9);  /* frosted-glass navbar */
+
+
+  /* ═══════════════════════════════════════
+     BORDER / DIVIDER COLORS
+  ═══════════════════════════════════════ */
+
+  --border-nav:           #c026d3;              /* nav bottom stripe */
+  --border-card:          rgba(255, 255, 255, 0.1); /* research card default border */
+  --border-card-hover:    #c026d3;              /* research card hover border */
+  --border-course-list:   #ddd6fe;              /* gap color between course rows */
+
+
+  /* ═══════════════════════════════════════
+     SECTION TAG CHIP COLORS
+  ═══════════════════════════════════════ */
+
+  --tag-about-bg:      var(--bg-tag-about);
+  --tag-about-text:    var(--accent-primary);
+
+  --tag-research-bg:   var(--accent-primary-subtle);
+  --tag-research-text: var(--accent-primary-bright);
+
+  --tag-teaching-bg:   var(--bg-tag-teaching);
+  --tag-teaching-text: var(--accent-secondary);
+
+
+  /* ═══════════════════════════════════════
+     LAYOUT
+  ═══════════════════════════════════════ */
+
+  --max-width:       1100px;   /* content container max width */
+  --max-width-prose:  650px;   /* readable prose / intro text max width */
+  --nav-height:        60px;   /* sticky nav height */
+
+
+  /* ═══════════════════════════════════════
+     SPACING
+  ═══════════════════════════════════════ */
+
+  --section-padding:   6rem 2rem;   /* vertical + horizontal padding for all sections */
+  --container-padding: 0 2rem;      /* horizontal padding for containers */
+
+
+  /* ═══════════════════════════════════════
+     BORDER RADIUS
+  ═══════════════════════════════════════ */
+
+  --radius-sm:   4px;    /* buttons, small elements */
+  --radius-md:   8px;    /* cards, photo, course list */
+  --radius-tag:  2px;    /* section tag chips */
+  --radius-pill: 100px;  /* contact / link chips */
+
+
+  /* ═══════════════════════════════════════
+     TRANSITIONS
+  ═══════════════════════════════════════ */
+
+  --transition-speed:      0.2s;
+  --transition-speed-fast: 0.15s;
+}

@@ -1,0 +1,10 @@
+[
+  { "id": "parameter-space-split",       "title": "Split View",       "built": true  },
+  { "id": "parameter-space-split-color", "title": "Split (Color)",    "built": false },
+  { "id": "parameter-space",             "title": "Basic",            "built": false },
+  { "id": "parameter-space-boundary",    "title": "Boundary",         "built": true },
+  { "id": "parameter-space-no-color",    "title": "No Color",         "built": false },
+  { "id": "parameter-space-pt",         "title": "Fixed point",          "built": true },
+  { "id": "parameter-space-quadpt",     "title": "Quad Point",           "built": false },
+  { "id": "parameter-space-zoom",       "title": "Zoom",                 "built": false }
+]
