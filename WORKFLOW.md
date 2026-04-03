@@ -149,6 +149,21 @@ Variants with `"built": false` are hidden from the parameter-space page.
 
 ---
 
+## Courses (Teaching)
+
+Edit `src/data/courses.json`. Each entry is one row in the teaching table:
+
+```json
+{ "title": "Calculus I", "semester": "Fall", "year": 2026, "role": "Instructor" }
+```
+
+- `semester`: `"Fall"`, `"Spring"`, or `"Summer"`
+- `role`: `"Instructor"` or `"TA"`
+
+Courses appear in the order listed — add new ones at the bottom.
+
+---
+
 ## Profile Photo
 
 Replace `public/profile.jpeg`:
