@@ -2,7 +2,7 @@
 import variants from '../../data/parameter-space-variants.json';
 
 const firstBuilt = variants.find(v => v.built)!;
-const firstSrc = `/demos/${firstBuilt.id}/index.html`;
+const firstSrc = `https://summerhaag.github.io/shaders-public/${firstBuilt.id}/`;
 ---
 
 <!DOCTYPE html>
@@ -144,7 +144,7 @@ const firstSrc = `/demos/${firstBuilt.id}/index.html`;
         {variants.filter(v => v.built).map((v) => (
           <div
             class={`variant-item${v.id === firstBuilt.id ? ' active' : ''}`}
-            data-src={`/demos/${v.id}/index.html`}
+            data-src={`https://summerhaag.github.io/shaders-public/${v.id}/`}
           >
             <span class="variant-dot"></span>
             {v.title}

@@ -3,7 +3,7 @@
     "id": "parameter-space",
     "title": "ACP Parameter Space",
     "description": "Explore the parameter space of Apollonian circle packings. The left panel shows strip packing configuration which is the parameter space; the mouse position on the left gives the resulting packing on the right.",
-    "src": "/demos/parameter-space-split/index.html",
+    "src": "https://summerhaag.github.io/shaders-public/parameter-space-split/",
     "collectionHref": "/demos/parameter-space"
   },
   {
