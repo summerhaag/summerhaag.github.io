@@ -6,5 +6,5 @@
   { "id": "parameter-space-no-color",    "title": "No Color",         "built": false },
   { "id": "parameter-space-pt",         "title": "Fixed point",          "built": true },
   { "id": "parameter-space-quadpt",     "title": "Quad Point",           "built": false },
-  { "id": "parameter-space-zoom",       "title": "Zoom",                 "built": false }
+  { "id": "parameter-space-zoom",       "title": "Zoom",                 "built": true }
 ]
