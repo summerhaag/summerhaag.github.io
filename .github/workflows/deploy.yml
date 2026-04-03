@@ -25,9 +25,7 @@ jobs:
         run: sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended
 
       - name: Compile CV
-        run: |
-          cd cv && pdflatex -interaction=nonstopmode cv.tex
-          cp cv/cv.pdf public/cv.pdf
+        run: cd cv && pdflatex -interaction=nonstopmode cv.tex && cp cv.pdf ../public/cv.pdf
 
       - name: Setup Node
         uses: actions/setup-node@v4
