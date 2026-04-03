@@ -26,9 +26,8 @@ jobs:
 
       - name: Compile CV
         run: |
-          mkdir -p cv-out
-          pdflatex -interaction=nonstopmode -output-directory=cv-out cv/cv.tex
-          cp cv-out/cv.pdf public/cv.pdf
+          cd cv && pdflatex -interaction=nonstopmode cv.tex
+          cp cv/cv.pdf public/cv.pdf
 
       - name: Setup Node
         uses: actions/setup-node@v4
