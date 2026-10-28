@@ -4,7 +4,9 @@ import { getCollection } from 'astro:content';
 import courses from '../data/courses.json';
 
 const allPapers = await getCollection('papers');
-const papers = allPapers.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const sortedPapers = allPapers.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const papers = sortedPapers.filter((p) => !p.data.unpublished);
+const unpublishedPapers = sortedPapers.filter((p) => p.data.unpublished);
 
 const illustrations = await getCollection('illustrations');
 const demos         = await getCollection('demos');
@@ -99,7 +101,7 @@ const talks         = (await getCollection('talks')).sort((a, b) => b.data.date.
 						<div class="card-icon">{paper.data.date.getFullYear()}</div>
 						<h3>{paper.data.title}</h3>
 						<p class="card-authors">{paper.data.authors}</p>
-						<p>{paper.data.abstract}</p>
+						{paper.data.abstract && <p>{paper.data.abstract}</p>}
 						<div class="card-meta">
 							{paper.data.journal && (
 								paper.data.url
@@ -116,6 +118,33 @@ const talks         = (await getCollection('talks')).sort((a, b) => b.data.date.
 					</div>
 				))}
 			</div>
+
+			{unpublishedPapers.length > 0 && (
+				<div class="research-subsection">
+					<h3 class="subsection-heading">Unpublished Works &amp; Notes</h3>
+					<div class="card-grid">
+						{unpublishedPapers.map((paper) => (
+							<div class="card card-unpublished">
+								<div class="card-icon">{paper.data.date.getFullYear()} &middot; Unpublished</div>
+								<h3>{paper.data.title}</h3>
+								<p class="card-authors">{paper.data.authors}</p>
+								{paper.data.abstract && <p>{paper.data.abstract}</p>}
+								<div class="card-meta">
+									{paper.data.pdf && (
+										<a href={paper.data.pdf} class="card-arxiv" target="_blank" rel="noopener noreferrer">PDF ↗</a>
+									)}
+									{paper.data.url && (
+										<a href={paper.data.url} class="card-arxiv" target="_blank" rel="noopener noreferrer">Link ↗</a>
+									)}
+									{paper.data.arxiv && (
+										<a href={paper.data.arxiv} class="card-arxiv" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
+									)}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			)}
 		</div>
 	</section>
 
@@ -836,6 +865,24 @@ const talks         = (await getCollection('talks')).sort((a, b) => b.data.date.
 
 	.section-gallery h2 {
 		color: var(--text-heading);
+	}
+
+	.research-subsection {
+		margin-top: 3rem;
+	}
+
+	.research-subsection .subsection-heading {
+		color: var(--text-on-dark-muted);
+	}
+
+	.card-unpublished {
+		border-style: dashed;
+	}
+
+	.card-unpublished .card-icon {
+		font-size: 0.8rem;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
 	}
 
 	.gallery-subsection {

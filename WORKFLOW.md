@@ -32,6 +32,29 @@ arxiv: https://arxiv.org/abs/... # optional
 
 Papers are sorted by date automatically (newest first).
 
+### Unpublished works & notes
+
+Add `unpublished: true` to the frontmatter. The paper then shows under
+"Unpublished Works & Notes" below the published papers. `abstract` is optional.
+
+To link a PDF, copy it into `public/papers/` and set `pdf`:
+```bash
+cp /path/to/notes.pdf public/papers/notes.pdf
+```
+
+```markdown
+---
+title: "Working Title"
+authors: "Author One, Author Two"
+date: 2026-10-01
+unpublished: true
+pdf: "/papers/notes.pdf"        # optional — shows a "PDF" link
+abstract: "Short description."  # optional
+---
+```
+
+To update the PDF later, copy the new version over the old file. When the paper is published, delete the `unpublished` and `pdf` lines and add `journal` / `url` / `arxiv`.
+
 ---
 
 ## Talks
@@ -142,7 +165,7 @@ After deploying, the shader is live at `https://summerhaag.github.io/shaders-pub
 
 ### Add a parameter-space variant
 1. Build and deploy it (above)
-2. Add an entry to `src/data/parameter-space-variants.json` with `"built": true`
+2. Add an entry to `src/data/parameter-space-variants.json` with `"built": true` and a `"description"` (shown in the sidebar when the variant is selected)
 3. Commit and push
 
 Variants with `"built": false` are hidden from the parameter-space page.

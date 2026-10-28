@@ -9,8 +9,10 @@ const papers = defineCollection({
   schema: z.object({
     title:    z.string(),
     authors:  z.string(),
-    abstract: z.string(),
+    abstract: z.string().optional(),
     date:     z.coerce.date(),
+    unpublished: z.boolean().optional(),  // true → shown under "Unpublished Works & Notes"
+    pdf:      z.string().optional(),        // path to a PDF in public/, e.g. /papers/my-notes.pdf
     journal:  z.string().optional(),
     url:      z.string().url().optional(),
     arxiv:    z.string().url().optional(),

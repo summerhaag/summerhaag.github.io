@@ -118,6 +118,15 @@ const firstSrc = `https://summerhaag.github.io/shaders-public/${firstBuilt.id}/`
     }
     .variant-item.active .variant-dot { opacity: 1; }
 
+    .variant-desc {
+      padding: 1rem;
+      border-top: 1px solid var(--divider);
+      font-size: 0.75rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+    .variant-desc:empty { display: none; }
+
     /* ── Viewer ── */
     .viewer {
       position: relative;
@@ -145,12 +154,15 @@ const firstSrc = `https://summerhaag.github.io/shaders-public/${firstBuilt.id}/`
           <div
             class={`variant-item${v.id === firstBuilt.id ? ' active' : ''}`}
             data-src={`https://summerhaag.github.io/shaders-public/${v.id}/`}
+            data-desc={v.description}
           >
             <span class="variant-dot"></span>
             {v.title}
           </div>
         ))}
       </nav>
+
+      <p id="variant-desc" class="variant-desc">{firstBuilt.description}</p>
     </aside>
 
     <div class="viewer">
@@ -160,12 +172,14 @@ const firstSrc = `https://summerhaag.github.io/shaders-public/${firstBuilt.id}/`
 
   <script>
     const frame = document.getElementById('viewer-frame') as HTMLIFrameElement;
+    const desc  = document.getElementById('variant-desc')!;
 
     document.querySelectorAll<HTMLElement>('.variant-item:not([data-disabled])').forEach(item => {
       item.addEventListener('click', () => {
         document.querySelectorAll('.variant-item').forEach(i => i.classList.remove('active'));
         item.classList.add('active');
         frame.src = item.dataset.src!;
+        desc.textContent = item.dataset.desc ?? '';
       });
     });
   </script>

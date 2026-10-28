@@ -1,10 +1,62 @@
 [
-  { "id": "parameter-space-split",       "title": "Split View",       "built": true  },
-  { "id": "parameter-space-split-color", "title": "Split (Color)",    "built": false },
-  { "id": "parameter-space",             "title": "Basic",            "built": false },
-  { "id": "parameter-space-boundary",    "title": "Boundary",         "built": true },
-  { "id": "parameter-space-no-color",    "title": "No Color",         "built": false },
-  { "id": "parameter-space-pt",         "title": "Fixed point",          "built": true },
-  { "id": "parameter-space-quadpt",     "title": "Quad Point",           "built": false },
-  { "id": "parameter-space-zoom",       "title": "Zoom",                 "built": true }
+  {
+    "id": "parameter-space-split",
+    "title": "Split View",
+    "built": true,
+    "description": "Move the mouse over the parameter space on the left (the strip packing (0, 0, 2, 2)). The middle panel draws the packing built from the Descartes quadruple at that point. The right panel inverts the strip packing through the same point, z ↦ 1/(z − p). The two packings match."
+  },
+  {
+    "id": "parameter-space-split-color",
+    "title": "Split (Color)",
+    "built": false,
+    "description": ""
+  },
+  {
+    "id": "parameter-space",
+    "title": "Basic",
+    "built": false,
+    "description": ""
+  },
+  {
+    "id": "parameter-space-boundary",
+    "title": "Boundary",
+    "built": true,
+    "description": "Split View with the four starting circles outlined in black in every panel, so you can follow each circle as the mouse moves."
+  },
+  {
+    "id": "parameter-space-sym-boundary",
+    "title": "Symmetries",
+    "built": true,
+    "description": "Boundary view plus the symmetries of the parameter space: colored curves mark points where two curvatures in the quadruple are equal, along with the lines x = 0 and x = 1/2."
+  },
+  {
+    "id": "parameter-space-no-color",
+    "title": "No Color",
+    "built": false,
+    "description": ""
+  },
+  {
+    "id": "parameter-space-pt",
+    "title": "Fixed point",
+    "built": true,
+    "description": "Uses one fixed Descartes quadruple instead of the mouse. Shows where that packing sits in the parameter space, and the point reflected into the fundamental domain of PGL(2, ℤ) (red)."
+  },
+  {
+    "id": "parameter-space-quadpt",
+    "title": "Quad Point",
+    "built": false,
+    "description": ""
+  },
+  {
+    "id": "parameter-space-zoom",
+    "title": "Zoom",
+    "built": true,
+    "description": "Split View with zoom and pan controls on each panel, for looking at the fractal up close. The fundamental domain of PGL(2, ℤ) is outlined in white."
+  },
+  {
+    "id": "parameter-space-equivPt",
+    "title": "Equivalent Points",
+    "built": true,
+    "description": "The mouse point (red) and its orbit under the group action (black dots): points in the parameter space that give the same packing. Purple curves mark where two curvatures are equal, and the fundamental domain of PGL(2, ℤ) is outlined. The right panel shows the inverted strip packing. Zoom and pan are available on the parameter space."
+  }
 ]
