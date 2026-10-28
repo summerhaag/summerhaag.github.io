@@ -22,7 +22,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install LaTeX
-        run: sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-extra texlive-fonts-recommended
 
       - name: Compile CV
         run: cd cv && pdflatex -interaction=nonstopmode cv.tex && cp cv.pdf ../public/cv.pdf
