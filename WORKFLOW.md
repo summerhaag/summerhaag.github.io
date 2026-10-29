@@ -10,6 +10,38 @@ GitHub Actions will rebuild and redeploy automatically (~2 min).
 
 ---
 
+## Site Structure
+
+| Page | File | Shows |
+|------|------|-------|
+| Home `/` | `src/pages/index.astro` | Banner, About Me, previews (2 newest papers, 2 newest talks, 3 gallery images) |
+| Research `/research` | `src/pages/research.astro` | All papers, in three lists |
+| Talks `/talks` | `src/pages/talks.astro` | All talks |
+| Teaching `/teaching` | `src/pages/teaching.astro` | All courses |
+| Gallery `/gallery` | `src/pages/gallery.astro` | Images by section + interactive demos |
+
+**What each page shows:**
+- **Home:** banner and About Me, then three previews.
+  - **Recent Papers:** the 2 newest published papers, an "All research →" button, and links to the in-progress and unpublished lists.
+  - **Recent Talks:** the 2 newest talks, with an "All talks →" button.
+  - **Gallery:** the first 3 images, with links to the gallery and the parameter-space demo.
+- **Research:** all papers in three lists (Published Papers, Papers in Progress, Unpublished Works & Notes). Buttons at the top jump to each list and show how many papers it has.
+- **Talks / Teaching:** the full lists.
+- **Gallery:** jump buttons at the top, then each image section, then the Interactive Code demos.
+
+**Menu:** Research (its dropdown jumps to each list on the Research page), Talks, Teaching, and Gallery each open their own page. The page you're on is highlighted. About goes back to the home page.
+
+The menu and footer are in `src/components/Nav.astro` and `Footer.astro`. Styles: colors/fonts in `src/styles/theme.css`, everything else in `src/styles/site.css`.
+
+You don't need to touch these files to add content — the sections below are all you need. Previews update automatically.
+
+**If the dev server shows missing or stale content** (especially after editing `src/content/config.ts`): stop it, delete the cache, restart:
+```bash
+rm -f .astro/data-store.json && npm run dev
+```
+
+---
+
 ## Papers
 
 Add a new file to `src/content/papers/`. Use an existing file as a template.
@@ -32,28 +64,45 @@ arxiv: https://arxiv.org/abs/... # optional
 
 Papers are sorted by date automatically (newest first).
 
-### Unpublished works & notes
+### Which list a paper appears in
 
-Add `unpublished: true` to the frontmatter. The paper then shows under
-"Unpublished Works & Notes" below the published papers. `abstract` is optional.
+Under Research there are three lists, each with a link in the Research dropdown menu. Set `status` in the frontmatter:
 
-To link a PDF, copy it into `public/papers/` and set `pdf`:
-```bash
-cp /path/to/notes.pdf public/papers/notes.pdf
-```
+| `status`        | Shown under                 | Notes |
+|-----------------|-----------------------------|-------|
+| *(leave out)*   | Published Papers            | default; `date` is required |
+| `in-progress`   | Papers in Progress          | `date` and `abstract` optional |
+| `unpublished`   | Unpublished Works & Notes   | `date` and `abstract` optional |
 
+A list only appears once it has at least one paper.
+
+In-progress example:
 ```markdown
 ---
 title: "Working Title"
 authors: "Author One, Author Two"
+status: in-progress
+---
+```
+
+Unpublished notes with a PDF: copy the PDF into `public/papers/` and set `pdf`:
+```bash
+cp /path/to/notes.pdf public/papers/notes.pdf
+```
+```markdown
+---
+title: "Notes Title"
+authors: "Summer Haag"
 date: 2026-10-01
-unpublished: true
-pdf: "/papers/notes.pdf"        # optional — shows a "PDF" link
+status: unpublished
+pdf: "/papers/notes.pdf"        # shows a "PDF" link
 abstract: "Short description."  # optional
 ---
 ```
 
-To update the PDF later, copy the new version over the old file. When the paper is published, delete the `unpublished` and `pdf` lines and add `journal` / `url` / `arxiv`.
+When a paper is published: delete the `status` line, add `date` and `journal` / `url` / `arxiv`.
+
+Long abstracts are cut to three lines on the site with a "Show more" button, so pasting the full abstract is fine.
 
 ---
 
@@ -102,10 +151,19 @@ cp /path/to/image.jpg public/illustrations/image.jpg
 
 Then add an entry to `src/content/illustrations.json`:
 ```json
-{ "id": "unique-id", "src": "/illustrations/image.jpg", "title": "Image Title", "alt": "Description of the image" }
+{ "id": "unique-id", "category": "Ford circles", "src": "/illustrations/image.jpg", "title": "Image Title", "alt": "Description of the image" }
 ```
 
-Images appear in the gallery in the order listed in the JSON file. Clicking opens the full image in a new tab.
+`category` must be exactly one of:
+- `"Integral Apollonian circle packings"`
+- `"O_K-integral Apollonian circle packings"` (shown on the site as 𝒪_K)
+- `"Schmidt arrangements and super packings"`
+- `"Ford circles"`
+- `"Error images"`
+
+A section only appears once it has at least one image. To add or rename sections, edit `galleryCategories` in `src/content/config.ts`.
+
+Images appear within their section in the order listed in the JSON file. Clicking opens the full image in a new tab.
 
 ---
 

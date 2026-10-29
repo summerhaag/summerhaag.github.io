@@ -1,0 +1,18 @@
+---
+import courses from '../data/courses.json';
+---
+
+<div class="course-list">
+	{courses.map((course) => (
+		<div class="course-item">
+			<span class="course-code">{course.semester}</span>
+			<div class="course-info">
+				<h3>
+					{course.title}
+					<span class="course-role" data-role={course.role}>{course.role}</span>
+				</h3>
+			</div>
+			<span class="course-term">{course.year}</span>
+		</div>
+	))}
+</div>

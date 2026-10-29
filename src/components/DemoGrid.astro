@@ -1,0 +1,44 @@
+---
+import { getDemos } from '../lib/content';
+const demos = await getDemos();
+---
+
+<div class="demo-grid">
+	{demos.map((demo) => (
+		demo.data.collectionHref ? (
+			<div class="demo-card demo-card-collection" onclick={`window.location='${demo.data.collectionHref}'`}>
+				<div class="demo-header">
+					<div>
+						<h4>{demo.data.title}</h4>
+						<p class="demo-desc">{demo.data.description}</p>
+					</div>
+					<span class="demo-fullscreen" aria-hidden="true">⛶</span>
+				</div>
+				<div class="demo-embed demo-embed-preview">
+					<iframe src={demo.data.src} title={demo.data.title} loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+				</div>
+				<div class="demo-collection-footer">
+					<span class="demo-collection-cta">Explore all variants →</span>
+				</div>
+			</div>
+		) : (
+			<div class="demo-card">
+				<div class="demo-header">
+					<div>
+						<h4>{demo.data.title}</h4>
+						<p class="demo-desc">{demo.data.description}</p>
+					</div>
+					<a href={demo.data.src} class="demo-fullscreen" title="Open full screen">⛶</a>
+				</div>
+				<div class="demo-embed">
+					<iframe
+						src={demo.data.src}
+						title={demo.data.title}
+						loading="lazy"
+						allow="pointer-lock"
+					></iframe>
+				</div>
+			</div>
+		)
+	))}
+</div>

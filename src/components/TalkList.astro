@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { talks: CollectionEntry<'talks'>[] }
+const { talks } = Astro.props;
+---
+
+<div class="talk-list">
+	{talks.map((talk) => (
+		<div class="talk-item">
+			<span class="talk-date">{talk.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</span>
+			<div class="talk-info">
+				<h3>
+					{talk.data.slides
+						? <a href={talk.data.slides} target="_blank" rel="noopener noreferrer">{talk.data.title} ↗</a>
+						: talk.data.title
+					}
+				</h3>
+				<p class="talk-venue">{talk.data.venue}</p>
+				{talk.data.abstract && <p class="talk-abstract">{talk.data.abstract}</p>}
+			</div>
+			<span class="talk-location">{talk.data.location}</span>
+		</div>
+	))}
+</div>

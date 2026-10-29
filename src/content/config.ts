@@ -10,8 +10,9 @@ const papers = defineCollection({
     title:    z.string(),
     authors:  z.string(),
     abstract: z.string().optional(),
-    date:     z.coerce.date(),
-    unpublished: z.boolean().optional(),  // true → shown under "Unpublished Works & Notes"
+    date:     z.coerce.date().optional(),    // required for published papers; optional otherwise
+    // Which list the paper appears in under Research
+    status:   z.enum(['published', 'in-progress', 'unpublished']).default('published'),
     pdf:      z.string().optional(),        // path to a PDF in public/, e.g. /papers/my-notes.pdf
     journal:  z.string().optional(),
     url:      z.string().url().optional(),
@@ -39,9 +40,18 @@ const demos = defineCollection({
 // ── Illustrations ────────────────────────────────────────────────────────────
 // Static images shown in the Gallery section.
 
+export const galleryCategories = [
+  'Integral Apollonian circle packings',
+  'O_K-integral Apollonian circle packings',
+  'Schmidt arrangements and super packings',
+  'Ford circles',
+  'Error images',
+] as const;
+
 const illustrations = defineCollection({
   loader: file('src/content/illustrations.json'),
   schema: z.object({
+    category: z.enum(galleryCategories),
     src:   z.string(),
     title: z.string(),
     alt:   z.string(),

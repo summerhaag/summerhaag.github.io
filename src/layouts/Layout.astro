@@ -1,6 +1,15 @@
 ---
+// Shared page frame: menu at the top, footer at the bottom.
 import '../styles/theme.css';
-const { title = "My Website" } = Astro.props;
+import '../styles/site.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title?: string;
+	current?: string;   // which menu item to highlight: research, talks, teaching, gallery
+}
+const { title = 'Summer Haag', current } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,7 +27,11 @@ const { title = "My Website" } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
 	</head>
 	<body>
-		<slot />
+		<Nav current={current} />
+		<main>
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
 

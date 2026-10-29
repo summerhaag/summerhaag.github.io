@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IllustrationGrid from '../components/IllustrationGrid.astro';
+import DemoGrid from '../components/DemoGrid.astro';
+import { getGallerySections, displayCategory } from '../lib/content';
+
+const gallerySections = await getGallerySections();
+---
+
+<Layout title="Gallery — Summer Haag" current="gallery">
+	<section class="section section-gallery page-top">
+		<div class="container">
+			<div class="section-tag">Art &amp; Code</div>
+			<h2>Gallery</h2>
+
+			<ul class="jump-links">
+				{gallerySections.map((section) => (
+					<li><a href={`#${section.id}`}>{displayCategory(section.category)} <span class="jump-count">{section.items.length}</span></a></li>
+				))}
+				<li><a href="#interactive-code">Interactive Code</a></li>
+			</ul>
+
+			{gallerySections.map((section) => (
+				<div class="gallery-subsection" id={section.id}>
+					<h3 class="subsection-heading">{displayCategory(section.category)}</h3>
+					<IllustrationGrid items={section.items} />
+				</div>
+			))}
+
+			<div class="gallery-subsection" id="interactive-code">
+				<h3 class="subsection-heading">Interactive Code</h3>
+				<DemoGrid />
+			</div>
+		</div>
+	</section>
+</Layout>

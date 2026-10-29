@@ -1,0 +1,61 @@
+---
+// One list of papers, shown as wide rows. Long abstracts are cut to 3 lines with "Show more".
+import type { PaperGroup } from '../lib/content';
+
+interface Props { group: PaperGroup; limit?: number }
+const { group, limit } = Astro.props;
+const items = limit ? group.items.slice(0, limit) : group.items;
+---
+
+<div class="paper-list">
+	{items.map((paper) => (
+		<article class={`paper-row paper-${paper.data.status ?? 'published'}`}>
+			<div class="paper-year">
+				{paper.data.date && <span>{paper.data.date.getFullYear()}</span>}
+				{group.label && <span class="paper-status">{group.label}</span>}
+			</div>
+			<div class="paper-body">
+				<h4>{paper.data.title}</h4>
+				<p class="card-authors">{paper.data.authors}</p>
+				{paper.data.abstract && (
+					<>
+						<p class="paper-abstract">{paper.data.abstract}</p>
+						<button type="button" class="abstract-toggle" hidden>Show more</button>
+					</>
+				)}
+				<div class="card-meta">
+					{paper.data.journal && (
+						paper.data.url
+							? <a href={paper.data.url} class="card-arxiv" target="_blank" rel="noopener noreferrer">{paper.data.journal} ↗</a>
+							: <span class="card-journal">{paper.data.journal}</span>
+					)}
+					{!paper.data.journal && paper.data.url && (
+						<a href={paper.data.url} class="card-arxiv" target="_blank" rel="noopener noreferrer">Link ↗</a>
+					)}
+					{paper.data.pdf && (
+						<a href={paper.data.pdf} class="card-arxiv" target="_blank" rel="noopener noreferrer">PDF ↗</a>
+					)}
+					{paper.data.arxiv && (
+						<a href={paper.data.arxiv} class="card-arxiv" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
+					)}
+					{paper.data.press && (
+						<a href={paper.data.press.url} class="card-press" target="_blank" rel="noopener noreferrer">{paper.data.press.name} ↗</a>
+					)}
+				</div>
+			</div>
+		</article>
+	))}
+</div>
+
+<script>
+	// Show the "Show more" button only when the abstract is actually cut off
+	document.querySelectorAll<HTMLElement>('.paper-abstract').forEach((abstract) => {
+		const button = abstract.nextElementSibling as HTMLButtonElement | null;
+		if (!button || abstract.scrollHeight <= abstract.clientHeight + 1) return;
+		button.hidden = false;
+		button.addEventListener('click', () => {
+			const expanded = abstract.classList.toggle('expanded');
+			button.textContent = expanded ? 'Show less' : 'Show more';
+		});
+	});
+</script>

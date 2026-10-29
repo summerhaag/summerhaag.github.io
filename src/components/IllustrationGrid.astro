@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { items: CollectionEntry<'illustrations'>[] }
+const { items } = Astro.props;
+---
+
+<div class="illus-grid">
+	{items.map((illus) => (
+		<figure class="illus-card">
+			<a href={illus.data.src} target="_blank" rel="noopener noreferrer">
+				<img src={illus.data.src} alt={illus.data.alt} class="illus-img" loading="lazy" />
+			</a>
+			<figcaption>{illus.data.title}</figcaption>
+		</figure>
+	))}
+</div>

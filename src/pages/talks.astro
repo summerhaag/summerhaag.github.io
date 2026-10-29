@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TalkList from '../components/TalkList.astro';
+import { getTalks } from '../lib/content';
+
+const talks = await getTalks();
+---
+
+<Layout title="Talks — Summer Haag" current="talks">
+	<section class="section section-talks page-top">
+		<div class="container">
+			<div class="section-tag">Presentations</div>
+			<h2>Talks &amp; Presentations</h2>
+			<p class="section-intro">Slides are linked where available (↗).</p>
+			<TalkList talks={talks} />
+		</div>
+	</section>
+</Layout>
