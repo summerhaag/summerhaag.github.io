@@ -10,5 +10,5 @@ abstract: >
   extend the group action on P¹(C) to cover all equivalent packings.
 date: 2026-10-26
 unpublished: true
-pdf: "/papers/baby-parameter-space.pdf"
+pdf: "/papers/acp_parameter_space_mobius_transformations.pdf"
 ---

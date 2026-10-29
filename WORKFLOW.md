@@ -193,3 +193,17 @@ Replace `public/profile.jpeg`:
 ```bash
 cp /path/to/new-photo.jpeg public/profile.jpeg
 ```
+
+---
+
+## Browser Tab Icon (Favicon)
+
+Make a square crop of your image and save three sizes into `public/`:
+```bash
+sips -c 900 900 /path/to/image.png --out /tmp/square.png   # crop to square (use the smaller side)
+sips -z 32 32   /tmp/square.png --out public/favicon-32.png
+sips -z 512 512 /tmp/square.png --out public/favicon.png
+sips -z 180 180 /tmp/square.png --out public/apple-touch-icon.png
+```
+
+Browsers cache favicons heavily — if the old one still shows after deploying, hard-refresh or open the site in a private window.
