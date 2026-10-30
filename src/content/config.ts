@@ -34,6 +34,7 @@ const demos = defineCollection({
     description:     z.string(),
     src:             z.string(),
     collectionHref:  z.string().optional(),
+    thumbnail:       z.string().optional(),  // image for a card at the top of the Gallery (needs collectionHref)
   }),
 });
 
@@ -45,6 +46,8 @@ export const galleryCategories = [
   'O_K-integral Apollonian circle packings',
   'Schmidt arrangements and super packings',
   'Ford circles',
+  'Parameter space',
+  'Diagrams',
   'Error images',
 ] as const;
 
@@ -55,6 +58,13 @@ const illustrations = defineCollection({
     src:   z.string(),
     title: z.string(),
     alt:   z.string(),
+    cover: z.boolean().optional(),  // true = this image is the section's thumbnail
+    // Optional: credit an image made by someone else, or made with their code
+    credit: z.object({
+      type: z.enum(['image', 'code', 'paper']),   // 'image' = "Image by …", 'code' = "Made with code by …", 'paper' = "From …"
+      by:   z.string(),                  // person or project name
+      url:  z.string().optional(),       // link to their page, paper, or repo
+    }).optional(),
   }),
 });
 

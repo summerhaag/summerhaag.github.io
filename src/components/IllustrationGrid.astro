@@ -3,15 +3,30 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props { items: CollectionEntry<'illustrations'>[] }
 const { items } = Astro.props;
+
+const creditLabel = { image: 'Image by', code: 'Made with code by', paper: 'From' } as const;
 ---
 
 <div class="illus-grid">
-	{items.map((illus) => (
-		<figure class="illus-card">
-			<a href={illus.data.src} target="_blank" rel="noopener noreferrer">
-				<img src={illus.data.src} alt={illus.data.alt} class="illus-img" loading="lazy" />
-			</a>
-			<figcaption>{illus.data.title}</figcaption>
-		</figure>
-	))}
+	{items.map((illus) => {
+		const credit = illus.data.credit;
+		return (
+			<figure class="illus-card">
+				<a href={illus.data.src} target="_blank" rel="noopener noreferrer">
+					<img src={illus.data.src} alt={illus.data.alt} class="illus-img" loading="lazy" />
+				</a>
+				<figcaption>
+					{illus.data.title}
+					{credit && (
+						<span class="illus-credit">
+							{creditLabel[credit.type]}{' '}
+							{credit.url
+								? <a href={credit.url} target="_blank" rel="noopener noreferrer">{credit.by}</a>
+								: credit.by}
+						</span>
+					)}
+				</figcaption>
+			</figure>
+		);
+	})}
 </div>

@@ -2,15 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import PaperList from '../components/PaperList.astro';
 import TalkList from '../components/TalkList.astro';
-import IllustrationGrid from '../components/IllustrationGrid.astro';
-import { getPaperGroups, getTalks, getGallerySections } from '../lib/content';
+import GallerySectionCards from '../components/GallerySectionCards.astro';
+import { getPaperGroups, getTalks, getGallerySections, getFeaturedDemos } from '../lib/content';
 
 // Home page: About plus short previews that link to the full pages
 const paperGroups = await getPaperGroups();
 const published = paperGroups.find((g) => g.id === 'published');
 const otherGroups = paperGroups.filter((g) => g.id !== 'published');
 const recentTalks = (await getTalks()).slice(0, 2);
-const galleryPreview = (await getGallerySections()).flatMap((s) => s.items).slice(0, 3);
+// Interactive demo card(s) first, then section cards, 3 cards total
+const featuredDemos = (await getFeaturedDemos()).slice(0, 1);
+const galleryPreview = (await getGallerySections()).slice(0, 3 - featuredDemos.length);
 ---
 
 <Layout title="Summer Haag">
@@ -114,10 +116,11 @@ const galleryPreview = (await getGallerySections()).flatMap((s) => s.items).slic
 			<div class="section-tag">Art &amp; Code</div>
 			<h2>Gallery</h2>
 			<p class="section-intro">Illustrations of circle packings and interactive shader demos.</p>
-			{galleryPreview.length > 0 && <IllustrationGrid items={galleryPreview} />}
+			{galleryPreview.length > 0 && <GallerySectionCards sections={galleryPreview} demos={featuredDemos} />}
 			<div class="preview-footer">
 				<a href="/gallery" class="see-all">Visit the gallery →</a>
 				<a href="/demos/parameter-space" class="see-all-secondary">Interactive parameter space</a>
+				<a href="https://github.com/summerhaag" target="_blank" rel="noopener noreferrer" class="see-all-secondary">My code on GitHub</a>
 			</div>
 		</div>
 	</section>

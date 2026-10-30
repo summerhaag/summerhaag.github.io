@@ -1,0 +1,33 @@
+---
+// One card per gallery section: cover image + name, linking to the section's page.
+// Interactive demos with a thumbnail get a card first, marked "Interactive".
+import type { CollectionEntry } from 'astro:content';
+import type { GallerySection } from '../lib/content';
+import { displayCategory } from '../lib/content';
+
+interface Props { sections: GallerySection[]; demos?: CollectionEntry<'demos'>[] }
+const { sections, demos = [] } = Astro.props;
+---
+
+<div class="illus-grid">
+	{demos.map((demo) => (
+		<a href={demo.data.collectionHref} class="illus-card section-card demo-thumb-card">
+			<span class="interactive-badge">Interactive</span>
+			<img src={demo.data.thumbnail} alt={`Preview of ${demo.data.title}`} class="illus-img" loading="lazy" />
+			<div class="section-card-text">
+				<span class="section-card-name">{demo.data.title}</span>
+				<span class="section-card-count">Try it in your browser →</span>
+				<span class="illus-credit">Built with Steve Trettel's Shader Sandbox</span>
+			</div>
+		</a>
+	))}
+	{sections.map((section) => (
+		<a href={`/gallery/${section.id}`} class="illus-card section-card">
+			<img src={section.cover.data.src} alt={section.cover.data.alt} class="illus-img" loading="lazy" />
+			<div class="section-card-text">
+				<span class="section-card-name">{displayCategory(section.category)}</span>
+				<span class="section-card-count">{section.items.length} {section.items.length === 1 ? 'image' : 'images'} →</span>
+			</div>
+		</a>
+	))}
+</div>

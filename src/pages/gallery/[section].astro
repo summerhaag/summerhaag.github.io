@@ -1,0 +1,39 @@
+---
+// One page per gallery section, e.g. /gallery/ford-circles
+import Layout from '../../layouts/Layout.astro';
+import IllustrationGrid from '../../components/IllustrationGrid.astro';
+import { getGallerySections, displayCategory, type GallerySection } from '../../lib/content';
+
+export async function getStaticPaths() {
+	const sections = await getGallerySections();
+	return sections.map((section, i) => ({
+		params: { section: section.id },
+		props: { section, prev: sections[i - 1], next: sections[i + 1] },
+	}));
+}
+
+interface Props { section: GallerySection; prev?: GallerySection; next?: GallerySection }
+const { section, prev, next } = Astro.props;
+const name = displayCategory(section.category);
+---
+
+<Layout title={`${name} — Gallery — Summer Haag`} current="gallery">
+	<section class="section section-gallery page-top">
+		<div class="container">
+			<a href="/gallery" class="back-link">← Gallery</a>
+			<div class="section-tag">Gallery</div>
+			<h2>{name}</h2>
+			<p class="gallery-note">
+				{section.items.length} {section.items.length === 1 ? 'image' : 'images'}. Click an image to open it full size.
+				Some images were made with the help of AI tools, and some were created by others or with code written by others.
+			</p>
+
+			<IllustrationGrid items={section.items} />
+
+			<div class="section-pager">
+				{prev ? <a href={`/gallery/${prev.id}`}>← {displayCategory(prev.category)}</a> : <span />}
+				{next ? <a href={`/gallery/${next.id}`}>{displayCategory(next.category)} →</a> : <span />}
+			</div>
+		</div>
+	</section>
+</Layout>

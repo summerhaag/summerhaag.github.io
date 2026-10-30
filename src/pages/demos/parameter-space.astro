@@ -130,6 +130,18 @@ const firstSrc = `https://summerhaag.github.io/shaders-public/${firstBuilt.id}/`
     }
     .variant-desc:empty { display: none; }
 
+    .shader-credit {
+      margin-top: auto;
+      padding: 1rem;
+      border-top: 1px solid var(--divider);
+      font-size: 0.7rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      opacity: 0.85;
+    }
+    .shader-credit a { color: var(--text-muted); text-decoration: underline; }
+    .shader-credit a:hover { color: #fff; }
+
     /* ── Viewer ── */
     .viewer {
       position: relative;
@@ -166,6 +178,12 @@ const firstSrc = `https://summerhaag.github.io/shaders-public/${firstBuilt.id}/`
       </nav>
 
       <p id="variant-desc" class="variant-desc">{firstBuilt.description}</p>
+
+      <p class="shader-credit">
+        Built with <a href="https://github.com/stevejtrettel/shader-sandbox" target="_blank" rel="noopener noreferrer">Shader Sandbox</a>
+        by <a href="https://stevejtrettel.site" target="_blank" rel="noopener noreferrer">Steve Trettel</a>.
+        These shaders exist thanks to his tool and his teaching at the IHP trimester.
+      </p>
     </aside>
 
     <div class="viewer">

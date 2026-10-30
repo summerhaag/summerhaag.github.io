@@ -5,5 +5,718 @@
     "src": "/illustrations/apollonian-superpack.jpg",
     "title": "Apollonian Circle Packing",
     "alt": "An Apollonian circle packing starting from the superpack configuration [-6+4√2, 1+√2, 2, -5+5√2]"
+  },
+  {
+    "id": "4pack",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/4pack.png",
+    "title": "Packing with curvatures labeled (4 at the center)",
+    "alt": "Packing with curvatures labeled (4 at the center)",
+    "credit": {
+      "type": "code",
+      "by": "James Rickards",
+      "url": "https://jamesrickards-canada.github.io/code.html"
+    }
+  },
+  {
+    "id": "bugeye",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/bugeye.png",
+    "title": "The bug-eye packing",
+    "alt": "The bug-eye packing",
+    "credit": {
+      "type": "code",
+      "by": "James Rickards",
+      "url": "https://jamesrickards-canada.github.io/code.html"
+    }
+  },
+  {
+    "id": "bug-eye-200",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/bug-eye-200.svg",
+    "title": "Bug-eye packing (unlabeled)",
+    "alt": "Bug-eye packing (unlabeled)",
+    "cover": true
+  },
+  {
+    "id": "6eleven-4",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/6eleven-4.png",
+    "title": "The (−6, 11, 14, 15) packing",
+    "alt": "The (−6, 11, 14, 15) packing",
+    "credit": {
+      "type": "code",
+      "by": "James Rickards",
+      "url": "https://jamesrickards-canada.github.io/code.html"
+    }
+  },
+  {
+    "id": "6eleven-curvs",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/6eleven-curvs.png",
+    "title": "The (−6, 11, 14, 15) packing with curvatures",
+    "alt": "The (−6, 11, 14, 15) packing with curvatures",
+    "credit": {
+      "type": "code",
+      "by": "James Rickards",
+      "url": "https://jamesrickards-canada.github.io/code.html"
+    }
+  },
+  {
+    "id": "mother-circle-bqf",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/mother-circle-bqf.png",
+    "title": "Packing colored by quadratic form",
+    "alt": "Packing colored by quadratic form",
+    "credit": {
+      "type": "image",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "strippacking",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/strippacking.png",
+    "title": "The strip packing",
+    "alt": "The strip packing"
+  },
+  {
+    "id": "colorful-strip",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/colorful-strip.png",
+    "title": "Colored strip packing",
+    "alt": "Colored strip packing"
+  },
+  {
+    "id": "3-10-42-7",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/3-10-42-7.png",
+    "title": "Colored packing from (3, 10, 42, 7)",
+    "alt": "Colored packing from (3, 10, 42, 7)"
+  },
+  {
+    "id": "3-15-10-2",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/3-15-10-2.png",
+    "title": "Colored packing from (3, 15, 10, −2)",
+    "alt": "Colored packing from (3, 15, 10, −2)"
+  },
+  {
+    "id": "3-6-7-34",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/3-6-7-34.png",
+    "title": "Colored packing from (3, 6, 7, 34)",
+    "alt": "Colored packing from (3, 6, 7, 34)"
+  },
+  {
+    "id": "shader-art-i",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/shader-art-i.jpg",
+    "title": "Shader art I",
+    "alt": "Shader art I",
+    "credit": {
+      "type": "code",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "shader-art-ii",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/shader-art-ii.jpg",
+    "title": "Shader art II",
+    "alt": "Shader art II",
+    "credit": {
+      "type": "code",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "shader-art-iii",
+    "category": "Integral Apollonian circle packings",
+    "src": "/illustrations/gallery/shader-art-iii.jpg",
+    "title": "Shader art III",
+    "alt": "Shader art III",
+    "credit": {
+      "type": "code",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "0-1-2-1-s2-2-labeled",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/0-1-2-1-s2-2-labeled.png",
+    "title": "Labeled packing [0, 1, 2, (1+√2)²]",
+    "alt": "Labeled packing [0, 1, 2, (1+√2)²]"
+  },
+  {
+    "id": "2-4s2-2-s2-3-5s2-1",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/2-4s2-2-s2-3-5s2-1.png",
+    "title": "Labeled packing [−2, 4√2−2, √2+3, 5√2−1]",
+    "alt": "Labeled packing [−2, 4√2−2, √2+3, 5√2−1]",
+    "cover": true
+  },
+  {
+    "id": "2-5-s2-3-s2-3-6-s2-4-mod12-curv100",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/2-5-s2-3-s2-3-6-s2-4-mod12-curv100.svg",
+    "title": "[−2, 5√2−3, √2+3, 6√2−4] colored mod 12",
+    "alt": "[−2, 5√2−3, √2+3, 6√2−4] colored mod 12"
+  },
+  {
+    "id": "4-s2-5-5-s2-7-15-s2-23-16-s2-23-norm-mod24-300",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/4-s2-5-5-s2-7-15-s2-23-16-s2-23-norm-mod24-300.png",
+    "title": "Norms mod 24, [−4√2−5, 5√2+7, 15√2+23, 16√2+23]",
+    "alt": "Norms mod 24, [−4√2−5, 5√2+7, 15√2+23, 16√2+23]"
+  },
+  {
+    "id": "1-s2-r-1-r-1-1-s2-norms-mod24-50",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/1-s2-r-1-r-1-1-s2-norms-mod24-50.png",
+    "title": "Norms mod 24, [1−√2, 1, 1, 1+√2]",
+    "alt": "Norms mod 24, [1−√2, 1, 1, 1+√2]"
+  },
+  {
+    "id": "r-2-5-s2-3-s2-3-6-s2-4-norm-mod24-50",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/r-2-5-s2-3-s2-3-6-s2-4-norm-mod24-50.png",
+    "title": "Norms mod 24, [−2, 5√2−3, √2+3, 6√2−4]",
+    "alt": "Norms mod 24, [−2, 5√2−3, √2+3, 6√2−4]"
+  },
+  {
+    "id": "packing-4s2-8-15s2-19-7s2-11-16s2-20",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/packing-4s2-8-15s2-19-7s2-11-16s2-20.png",
+    "title": "Packing [−4√2−8, 15√2+19, 7√2+11, 16√2+20]",
+    "alt": "Packing [−4√2−8, 15√2+19, 7√2+11, 16√2+20]"
+  },
+  {
+    "id": "packing-6-4s2-1-s2-2-5-5s2",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/packing-6-4s2-1-s2-2-5-5s2.png",
+    "title": "Packing [−6+4√2, 1+√2, 2, −5+5√2]",
+    "alt": "Packing [−6+4√2, 1+√2, 2, −5+5√2]"
+  },
+  {
+    "id": "packing-1-s2-1-1-1-s2",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/packing-1-s2-1-1-1-s2.png",
+    "title": "Packing [1−√2, 1, 1, 1+√2]",
+    "alt": "Packing [1−√2, 1, 1, 1+√2]"
+  },
+  {
+    "id": "halfplane-s2",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/halfplane-s2.png",
+    "title": "Half-plane packing over ℤ[√2]",
+    "alt": "Half-plane packing over ℤ[√2]"
+  },
+  {
+    "id": "halfplane-s2-more",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/halfplane-s2-more.png",
+    "title": "Half-plane packing over ℤ[√2], zoomed out",
+    "alt": "Half-plane packing over ℤ[√2], zoomed out"
+  },
+  {
+    "id": "halfplane-s2-unit-bound",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/halfplane-s2-unit-bound.png",
+    "title": "Half-plane packing bounded by a unit",
+    "alt": "Half-plane packing bounded by a unit"
+  },
+  {
+    "id": "halfplane-s2-unit-zoom",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/halfplane-s2-unit-zoom.png",
+    "title": "Half-plane packing, unit zoom",
+    "alt": "Half-plane packing, unit zoom"
+  },
+  {
+    "id": "halfpane-s2-zoom",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/halfpane-s2-zoom.png",
+    "title": "Half-plane packing, zoomed in",
+    "alt": "Half-plane packing, zoomed in"
+  },
+  {
+    "id": "bqf-equiv-packings",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/bqf-equiv-packings.png",
+    "title": "Packings from equivalent quadratic forms",
+    "alt": "Packings from equivalent quadratic forms"
+  },
+  {
+    "id": "bqf-equiv-packings-more",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/bqf-equiv-packings-more.png",
+    "title": "Packings from equivalent quadratic forms, more",
+    "alt": "Packings from equivalent quadratic forms, more"
+  },
+  {
+    "id": "bqf-equiv-packing-more-newbasequad",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/bqf-equiv-packing-more-newbasequad.png",
+    "title": "Equivalent quadratic forms, new base quadruple",
+    "alt": "Equivalent quadratic forms, new base quadruple"
+  },
+  {
+    "id": "acp-equiv-1-s2",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/acp-equiv-1-s2.svg",
+    "title": "Equivalent packings for 1−√2",
+    "alt": "Equivalent packings for 1−√2"
+  },
+  {
+    "id": "new-equivalence-grid",
+    "category": "O_K-integral Apollonian circle packings",
+    "src": "/illustrations/gallery/new-equivalence-grid.png",
+    "title": "Grid of equivalent packings",
+    "alt": "Grid of equivalent packings"
+  },
+  {
+    "id": "schmidt-arran",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/schmidt-arran.png",
+    "title": "Schmidt arrangement for ℤ[√2]",
+    "alt": "Schmidt arrangement for ℤ[√2]"
+  },
+  {
+    "id": "schmidt-arran2",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/schmidt-arran2.png",
+    "title": "Schmidt arrangement for ℤ[√2], detail",
+    "alt": "Schmidt arrangement for ℤ[√2], detail",
+    "cover": true
+  },
+  {
+    "id": "schmidt-arran-transformed",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/schmidt-arran-transformed.png",
+    "title": "Transformed Schmidt arrangement",
+    "alt": "Transformed Schmidt arrangement"
+  },
+  {
+    "id": "schmidt-arran-transformed2",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/schmidt-arran-transformed2.png",
+    "title": "Transformed Schmidt arrangement II",
+    "alt": "Transformed Schmidt arrangement II"
+  },
+  {
+    "id": "schmidt-arran-transformed-diff",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/schmidt-arran-transformed-diff.png",
+    "title": "Schmidt arrangement, another transformation",
+    "alt": "Schmidt arrangement, another transformation"
+  },
+  {
+    "id": "schmidt-arran-transformed-diff2",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/schmidt-arran-transformed-diff2.png",
+    "title": "Schmidt arrangement, another transformation II",
+    "alt": "Schmidt arrangement, another transformation II"
+  },
+  {
+    "id": "superpacking-s2",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/superpacking-s2.png",
+    "title": "Super packing over ℤ[√2]",
+    "alt": "Super packing over ℤ[√2]"
+  },
+  {
+    "id": "superpacking-s2-unit-zoom",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/superpacking-s2-unit-zoom.png",
+    "title": "Super packing, unit zoom",
+    "alt": "Super packing, unit zoom"
+  },
+  {
+    "id": "superpacking-strip",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/superpacking-strip.png",
+    "title": "Strip super packing",
+    "alt": "Strip super packing"
+  },
+  {
+    "id": "beginning-superpack-6-4s2-1-s2-2-5-5s2",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/beginning-superpack-6-4s2-1-s2-2-5-5s2.png",
+    "title": "Beginning a super packing from [−6+4√2, 1+√2, 2, −5+5√2]",
+    "alt": "Beginning a super packing from [−6+4√2, 1+√2, 2, −5+5√2]"
+  },
+  {
+    "id": "beginning-superpack-1-s2-1-1-1-s2",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/beginning-superpack-1-s2-1-1-1-s2.png",
+    "title": "Beginning a super packing from [1−√2, 1, 1, 1+√2]",
+    "alt": "Beginning a super packing from [1−√2, 1, 1, 1+√2]"
+  },
+  {
+    "id": "start-of-superpacking-6-4s2-1-s2-2-5-5s2",
+    "category": "Schmidt arrangements and super packings",
+    "src": "/illustrations/gallery/start-of-superpacking-6-4s2-1-s2-2-5-5s2.png",
+    "title": "Start of a super packing",
+    "alt": "Start of a super packing"
+  },
+  {
+    "id": "ford-circles",
+    "category": "Ford circles",
+    "src": "/illustrations/gallery/ford-circles.png",
+    "title": "Ford circles",
+    "alt": "Ford circles"
+  },
+  {
+    "id": "s2-ford-circles-normal-highlighted",
+    "category": "Ford circles",
+    "src": "/illustrations/gallery/s2-ford-circles-normal-highlighted.png",
+    "title": "Ford circles over ℤ[√2], highlighted",
+    "alt": "Ford circles over ℤ[√2], highlighted"
+  },
+  {
+    "id": "colored-ford-acp-circles",
+    "category": "Ford circles",
+    "src": "/illustrations/gallery/colored-ford-acp-circles.png",
+    "title": "Ford circles and Apollonian circles",
+    "alt": "Ford circles and Apollonian circles",
+    "cover": true
+  },
+  {
+    "id": "acp-parameter-space-bounded",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/acp-parameter-space-bounded.png",
+    "title": "Parameter space: bounded packing",
+    "alt": "Parameter space: bounded packing"
+  },
+  {
+    "id": "acp-parameter-space-full-plane",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/acp-parameter-space-full-plane.png",
+    "title": "Parameter space: full-plane packing",
+    "alt": "Parameter space: full-plane packing",
+    "cover": true
+  },
+  {
+    "id": "acp-parameter-space-half-plane",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/acp-parameter-space-half-plane.png",
+    "title": "Parameter space: half-plane packing",
+    "alt": "Parameter space: half-plane packing"
+  },
+  {
+    "id": "acp-parameter-space-strip",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/acp-parameter-space-strip.png",
+    "title": "Parameter space: strip packing",
+    "alt": "Parameter space: strip packing"
+  },
+  {
+    "id": "acp-parameter-space2",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/acp-parameter-space2.png",
+    "title": "Parameter space split view",
+    "alt": "Parameter space split view"
+  },
+  {
+    "id": "acp-parameter-space3",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/acp-parameter-space3.png",
+    "title": "Parameter space split view II",
+    "alt": "Parameter space split view II"
+  },
+  {
+    "id": "parameter-space-depth",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/parameter-space-depth.png",
+    "title": "Parameter space depth regions",
+    "alt": "Parameter space depth regions",
+    "credit": {
+      "type": "paper",
+      "by": "James Rickards, “The Apollonian staircase”",
+      "url": "https://arxiv.org/abs/2203.08311"
+    }
+  },
+  {
+    "id": "beginning-parameter",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/beginning-parameter.png",
+    "title": "Regions of the parameter space",
+    "alt": "Regions of the parameter space",
+    "credit": {
+      "type": "paper",
+      "by": "James Rickards, “The Apollonian staircase”",
+      "url": "https://arxiv.org/abs/2203.08311"
+    }
+  },
+  {
+    "id": "ps-quad-red",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/ps-quad-red.png",
+    "title": "Parameter space strip",
+    "alt": "Parameter space strip"
+  },
+  {
+    "id": "parameter-space-with-symmetry-lines",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/parameter-space-with-symmetry-lines.png",
+    "title": "Parameter space with symmetry lines",
+    "alt": "Parameter space with symmetry lines"
+  },
+  {
+    "id": "parameter-space-at-a-point",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/parameter-space-at-a-point.png",
+    "title": "Parameter space at a point",
+    "alt": "Parameter space at a point"
+  },
+  {
+    "id": "parameter-space-zoomed",
+    "category": "Parameter space",
+    "src": "/illustrations/gallery/parameter-space-zoomed.png",
+    "title": "Parameter space, zoomed",
+    "alt": "Parameter space, zoomed"
+  },
+  {
+    "id": "types-of-packings",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/types-of-packings.png",
+    "title": "Types of packings",
+    "alt": "Types of packings",
+    "cover": true,
+    "credit": {
+      "type": "paper",
+      "by": "Jan E. Holly, “What Type of Apollonian Circle Packing Will Appear?”",
+      "url": "https://doi.org/10.1080/00029890.2021.1933834"
+    }
+  },
+  {
+    "id": "tangent-pts",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/tangent-pts.png",
+    "title": "Tangency points",
+    "alt": "Tangency points"
+  },
+  {
+    "id": "quad",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/quad.png",
+    "title": "A Descartes quadruple",
+    "alt": "A Descartes quadruple"
+  },
+  {
+    "id": "quad-dual",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/quad-dual.png",
+    "title": "A quadruple and its dual",
+    "alt": "A quadruple and its dual"
+  },
+  {
+    "id": "quad-dual-invert",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/quad-dual-invert.png",
+    "title": "A quadruple and its dual, inverted",
+    "alt": "A quadruple and its dual, inverted"
+  },
+  {
+    "id": "circles-desc-quad",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/circles-desc-quad.png",
+    "title": "Circles of a Descartes quadruple",
+    "alt": "Circles of a Descartes quadruple"
+  },
+  {
+    "id": "circle-inversion",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/circle-inversion.jpeg",
+    "title": "Circle inversion",
+    "alt": "Circle inversion"
+  },
+  {
+    "id": "circle-swap",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/circle-swap.jpg",
+    "title": "Swapping a circle",
+    "alt": "Swapping a circle"
+  },
+  {
+    "id": "soddy-circles",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/soddy-circles.png",
+    "title": "Soddy circles",
+    "alt": "Soddy circles",
+    "credit": {
+      "type": "image",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "d1",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/d1.png",
+    "title": "Diagram D1",
+    "alt": "Diagram D1",
+    "credit": {
+      "type": "image",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "d2",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/d2.png",
+    "title": "Diagram D2",
+    "alt": "Diagram D2",
+    "credit": {
+      "type": "image",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "6eleven-dotted",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/6eleven-dotted.png",
+    "title": "Building a packing: dotted circles",
+    "alt": "Building a packing: dotted circles",
+    "credit": {
+      "type": "image",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "6eleven-iter1",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/6eleven-iter1.png",
+    "title": "Building a packing: step 1",
+    "alt": "Building a packing: step 1",
+    "credit": {
+      "type": "image",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "6eleven-iter2",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/6eleven-iter2.png",
+    "title": "Building a packing: step 2",
+    "alt": "Building a packing: step 2",
+    "credit": {
+      "type": "image",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "6eleven-iter3",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/6eleven-iter3.png",
+    "title": "Building a packing: step 3",
+    "alt": "Building a packing: step 3",
+    "credit": {
+      "type": "image",
+      "by": "Katherine Stange",
+      "url": "https://math.katestange.net/"
+    }
+  },
+  {
+    "id": "2-3-6-7",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/2-3-6-7.png",
+    "title": "Quadruple (−2, 3, 6, 7)",
+    "alt": "Quadruple (−2, 3, 6, 7)"
+  },
+  {
+    "id": "2-3-6-7-s1",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/2-3-6-7-s1.png",
+    "title": "Quadruple (−2, 3, 6, 7), swap 1",
+    "alt": "Quadruple (−2, 3, 6, 7), swap 1"
+  },
+  {
+    "id": "2-3-6-7-s2",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/2-3-6-7-s2.png",
+    "title": "Quadruple (−2, 3, 6, 7), swap 2",
+    "alt": "Quadruple (−2, 3, 6, 7), swap 2"
+  },
+  {
+    "id": "2-3-6-7-s3",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/2-3-6-7-s3.png",
+    "title": "Quadruple (−2, 3, 6, 7), swap 3",
+    "alt": "Quadruple (−2, 3, 6, 7), swap 3"
+  },
+  {
+    "id": "2-3-6-7-s4",
+    "category": "Diagrams",
+    "src": "/illustrations/gallery/2-3-6-7-s4.png",
+    "title": "Quadruple (−2, 3, 6, 7), swap 4",
+    "alt": "Quadruple (−2, 3, 6, 7), swap 4"
+  },
+  {
+    "id": "error-ford",
+    "category": "Error images",
+    "src": "/illustrations/gallery/error-ford.png",
+    "title": "Ford circles gone wrong",
+    "alt": "Ford circles gone wrong"
+  },
+  {
+    "id": "error-ford-big",
+    "category": "Error images",
+    "src": "/illustrations/gallery/error-ford-big.png",
+    "title": "Ford circles gone wrong, big",
+    "alt": "Ford circles gone wrong, big",
+    "cover": true
+  },
+  {
+    "id": "error-ford-closer",
+    "category": "Error images",
+    "src": "/illustrations/gallery/error-ford-closer.png",
+    "title": "Ford circles gone wrong, closer",
+    "alt": "Ford circles gone wrong, closer"
+  },
+  {
+    "id": "error-ford-funny",
+    "category": "Error images",
+    "src": "/illustrations/gallery/error-ford-funny.png",
+    "title": "Ford circles gone wrong, funny",
+    "alt": "Ford circles gone wrong, funny"
+  },
+  {
+    "id": "error-ford-weird",
+    "category": "Error images",
+    "src": "/illustrations/gallery/error-ford-weird.png",
+    "title": "Ford circles gone wrong, weird",
+    "alt": "Ford circles gone wrong, weird"
+  },
+  {
+    "id": "ford-too-many",
+    "category": "Error images",
+    "src": "/illustrations/gallery/ford-too-many.png",
+    "title": "Too many Ford circles",
+    "alt": "Too many Ford circles"
+  },
+  {
+    "id": "halfplane-labelling-error",
+    "category": "Error images",
+    "src": "/illustrations/gallery/halfplane-labelling-error.png",
+    "title": "Labelling error",
+    "alt": "Labelling error"
+  },
+  {
+    "id": "acp-equiv-error",
+    "category": "Error images",
+    "src": "/illustrations/gallery/acp-equiv-error.svg",
+    "title": "Equivalence error",
+    "alt": "Equivalence error"
   }
 ]

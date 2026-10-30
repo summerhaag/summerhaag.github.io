@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import IllustrationGrid from '../components/IllustrationGrid.astro';
+import GallerySectionCards from '../components/GallerySectionCards.astro';
 import DemoGrid from '../components/DemoGrid.astro';
-import { getGallerySections, displayCategory } from '../lib/content';
+import ShaderCredit from '../components/ShaderCredit.astro';
+import { getGallerySections, getFeaturedDemos } from '../lib/content';
 
 const gallerySections = await getGallerySections();
+const featuredDemos = await getFeaturedDemos();
 ---
 
 <Layout title="Gallery — Summer Haag" current="gallery">
@@ -12,23 +14,19 @@ const gallerySections = await getGallerySections();
 		<div class="container">
 			<div class="section-tag">Art &amp; Code</div>
 			<h2>Gallery</h2>
+			<p class="gallery-note">
+				Some of these images were made with the help of AI tools, and some were created by
+				others or with code written by others.
+			</p>
+			<p class="code-link">
+				<a href="https://github.com/summerhaag" target="_blank" rel="noopener noreferrer" class="see-all">My code on GitHub →</a>
+			</p>
 
-			<ul class="jump-links">
-				{gallerySections.map((section) => (
-					<li><a href={`#${section.id}`}>{displayCategory(section.category)} <span class="jump-count">{section.items.length}</span></a></li>
-				))}
-				<li><a href="#interactive-code">Interactive Code</a></li>
-			</ul>
-
-			{gallerySections.map((section) => (
-				<div class="gallery-subsection" id={section.id}>
-					<h3 class="subsection-heading">{displayCategory(section.category)}</h3>
-					<IllustrationGrid items={section.items} />
-				</div>
-			))}
+			<GallerySectionCards sections={gallerySections} demos={featuredDemos} />
 
 			<div class="gallery-subsection" id="interactive-code">
 				<h3 class="subsection-heading">Interactive Code</h3>
+				<ShaderCredit />
 				<DemoGrid />
 			</div>
 		</div>

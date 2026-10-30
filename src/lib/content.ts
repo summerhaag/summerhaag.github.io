@@ -30,10 +30,22 @@ export const displayCategory = (category: string) => category.replace('O_K', 'ð
 export async function getGallerySections() {
 	const illustrations = await getCollection('illustrations');
 	return galleryCategories
-		.map((category) => ({ category, id: slugify(category), items: illustrations.filter((i) => i.data.category === category) }))
+		.map((category) => {
+			const items = illustrations.filter((i) => i.data.category === category);
+			// Thumbnail: the image marked "cover": true, otherwise the first one
+			const cover = items.find((i) => i.data.cover) ?? items[0];
+			return { category, id: slugify(category), items, cover };
+		})
 		.filter((section) => section.items.length > 0);
 }
 
+export type GallerySection = Awaited<ReturnType<typeof getGallerySections>>[number];
+
 export async function getDemos() {
 	return getCollection('demos');
+}
+
+// Interactive demos that get their own card at the top of the Gallery
+export async function getFeaturedDemos() {
+	return (await getDemos()).filter((d) => d.data.thumbnail && d.data.collectionHref);
 }

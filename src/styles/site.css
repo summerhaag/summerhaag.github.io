@@ -1030,3 +1030,126 @@ footer {
 .section-research .see-all-secondary {
 	color: var(--accent-primary-bright);
 }
+
+.gallery-note {
+	font-size: 0.9rem;
+	font-style: italic;
+	color: var(--text-muted, #6b7280);
+	margin: -0.5rem 0 1.5rem;
+	max-width: 46rem;
+}
+
+/* Gallery section cards (cover image + name) */
+.section-card {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	color: inherit;
+}
+
+.section-card-text {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	padding: 0.9rem 1rem 1rem;
+}
+
+.section-card-name {
+	font-weight: 700;
+	color: var(--text-heading);
+}
+
+.section-card-count {
+	font-size: 0.8rem;
+	font-weight: 600;
+	color: var(--accent-primary);
+}
+
+/* Section page: back link and previous/next links */
+.back-link {
+	display: block;
+	width: fit-content;
+	margin-bottom: 1.5rem;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--accent-primary);
+	text-decoration: none;
+}
+
+.back-link:hover { text-decoration: underline; }
+
+.section-pager {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 3rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--border-card);
+}
+
+.section-pager a {
+	font-weight: 600;
+	color: var(--accent-primary);
+	text-decoration: none;
+}
+
+.section-pager a:hover { text-decoration: underline; }
+
+/* Inside a section, show each whole image rather than a cropped square */
+.illus-card:not(.section-card) .illus-img {
+	object-fit: contain;
+	background: #fff;
+}
+
+/* "Image by …" / "Made with code by …" line under a gallery caption */
+.illus-credit {
+	display: block;
+	margin-top: 0.25rem;
+	font-size: 0.75rem;
+	font-weight: 400;
+	font-style: italic;
+	color: var(--text-muted);
+}
+
+.illus-credit a {
+	color: var(--accent-primary);
+}
+
+/* Interactive demo card at the top of the Gallery */
+.demo-thumb-card {
+	position: relative;
+	border-color: var(--accent-primary);
+}
+
+.interactive-badge {
+	position: absolute;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 1;
+	padding: 0.25rem 0.6rem;
+	border-radius: 999px;
+	background: var(--accent-primary);
+	color: #fff;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+/* Thanks to Steve Trettel, above the Interactive Code demos */
+.shader-credit-note {
+	font-size: 0.9rem;
+	color: var(--text-muted);
+	margin: -0.5rem 0 1.5rem;
+	max-width: 46rem;
+	line-height: 1.6;
+}
+
+.shader-credit-note a {
+	color: var(--accent-primary);
+	font-weight: 600;
+}
+
+.code-link {
+	margin: -0.5rem 0 2rem;
+}
